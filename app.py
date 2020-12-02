@@ -55,14 +55,12 @@ def index():
 
 @app.route("/admin")
 @app.route("/admin/movies")
-@login_required
 def movies():
     movies = Movie.query.all()
     return render_template("admin/movies.html", movies=movies)
 
 
 @app.route("/admin/create/movie", methods=("GET", "POST"))
-@login_required
 def create_movie():
     if request.method == "POST":
         name = request.form["name"]
@@ -95,7 +93,6 @@ def create_movie():
 
 
 @app.route("/admin/edit/movie/<id>", methods=("GET", "POST"))
-@login_required
 def edit_movie(id):
     movie = Movie.query.get_or_404(id)
 
@@ -131,7 +128,6 @@ def edit_movie(id):
 
 
 @app.route("/admin/delete/movie/<id>")
-@login_required
 def delete_movie(id):
     movie = Movie.query.get_or_404(id)
     db.session.delete(movie)
@@ -141,7 +137,6 @@ def delete_movie(id):
 
 
 @app.route("/admin/create/genre", methods=("GET", "POST"))
-@login_required
 def create_genre():
     if request.method == "POST":
         name = request.form["name"]
