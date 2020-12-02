@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1 class="is-size-1">Welcome to MovieDB</h1>
+
+    <p>Movies</p>
+    <ul>
+        {% for movie in movies %}
+          <li>{{ movie.name }}</li>
+        {% endfor %}
+    </ul>
+
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'admin/layout.html' %}
+
+{% block content %}
+<div class="card edit">
+  <header class="card-header">
+    <p class="card-header-title">Category</p>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+      {% endfor %}
+      <form method="POST">
+        <div class="field">
+          <label class="label">Name</label>
+          <div class="control">
+            <input type="text" class="input" name="name" value="{{ name | default('')}}">
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Description</label>
+          <div class="control">
+            <input type="text" class="input" name="description" value="{{ description | default('')}}">
+          </div>
+        </div>
+          <div class="field">
+          <label class="label">Director</label>
+          <div class="control">
+            <div class="select">
+              <select name="director_id">
+                {% for director in directors %}
+                  <option value="{{ director.id }}" {{ 'selected' if director.id == director_id }}>{{director.name}}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Genre</label>
+          <div class="control">
+            <div class="select">
+              <select name="genre_id">
+                {% for genre in genres %}
+                  <option value="{{ genre.id }}" {{ 'selected' if genre.id == genre_id }} >{{genre.name}}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="field is-grouped">
+          <div class="control">
+            <input type="submit" class="button is-link" value="Submit">
+          </div>
+          <div class="control">
+            <a class="button is-text" href="{{ url_for('movies') }}">Cancel</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
