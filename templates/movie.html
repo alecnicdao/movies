@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %} {{ title }} {% endblock title %}
+{% block head %}
+    {{ super() }}
+{% endblock head %}
+
+{% block content %}
+    <h3> {{ title }} </h3>
+    {% if subtitle %}
+        <h3>{{ subtitle }}</h3>
+    {% endif %}
+    <h4>by {{ director }} </h4>
+    <p> {{ description }} </p>
+{% endblock content %} 

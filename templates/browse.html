@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Browse Movies{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock head %}
+
+{% block content %}
+    <h3>Browse our Movies!</h3>
+    <ul>
+        <li><a href="/genre/action">Action</a></li>
+        <li><a href="/genre/adventure">Adventure</a></li>
+        <li><a href="/genre/fantasy">Fantasy</a></li>
+    </ul>
+{% endblock content %}

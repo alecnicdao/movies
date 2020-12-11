@@ -1,15 +1,23 @@
 {% extends 'base.html' %}
+{% block title %} The Avengers! {% endblock title %}
+{% block head %}
+    {{ super() }}
+{% endblock head %}
 
 {% block content %}
+<section>
+    <h3>Deciding what to watch next?</h3>
+    <p>Then you are in the right place. What ever titles and genres you might be into, we've got lots to choose from here.</p>
+    <p><a href="/browse">Click here for the top Avenger movies</a></p>
+</section>
 
-    <h1 class="is-size-1">Welcome to MovieDB</h1>
+<section>
+    <h3>What are your friends watching?</h3>
+    <p>Your friends might be watching DC, discuss their team Marvel or DC! Right now!</p>
+</section>
 
-    <p>Movies</p>
-    <ul>
-        {% for movie in movies %}
-          <li>{{ movie.name }}</li>
-        {% endfor %}
-    </ul>
-
-
-{% endblock %}
+<section>
+    <h3>Are you an producer or director?</h3>
+    <p>Netflix is the perfect place to launch your new title, and reach many movie lovers!</p>
+</section>
+{% endblock content %}
